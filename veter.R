@@ -24,3 +24,5 @@ fruit
 aTeam=setNames(c("aTeam","서하나", "서지연", "강성진", "이아름"),c("조이름", "조장","조원1", "조원2","조원3"))
 aTeam
 print(aTeam);
+
+
