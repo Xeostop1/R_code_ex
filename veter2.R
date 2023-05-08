@@ -67,7 +67,9 @@ d=c(100,75,80);
 e=c("a302043","a302044","a302045");
 f=data.frame(score=d, id=e);
 f
-f$id
+write.csv(f, file="C:\Users\user\Desktop\BigdataClass\R L\cvs\sample_f.csv")
+newZ=read.csv(file="C:\Users\user\Desktop\BigdataClass\R L\cvs\sample_f.csv", header=T)
+newZ
 
 # 매트릭스2d행열
 # 어레이 3D 행열
