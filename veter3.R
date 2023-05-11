@@ -20,4 +20,23 @@ beer=c(3,4,1,1,3,4,3,3,1,3,2,1,2,1,2,3,2,3,1,1,1,1,4,3,1)
 # 프리컨시가 뭐더라?? 빈도
 table(beer)
 barplot(table(beer))
+# 상대도수
+barplot(table(beer)/length(beer),
+        # 그래프 컬러세팅 rgb도 가능함
+        col=c("lightblue", "mistyrose", "lightcyan", "cornsilk"),
+        #막대라벨
+        names.arg=c("Domesitn\n can", 
+                    "Domesitic\n bottle",
+                    "Microbrew\n",
+                    "Import\n"
+        ),
+        # y라벨 변경 
+        ylab="Relative frequency",
+        main="Beer Preference Survey")
+
+
+
+
+
+
 
