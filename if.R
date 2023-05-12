@@ -4,9 +4,16 @@ name=c("a","b","c")
 f2=setNames(f,name)
 f2
 
-# 조건문 1. if-else / 2.ifelse()함수 / 3.중괄호 활용
+# 조건문 1. if-else / 2.ifelse() / 3.중괄호 활용
 #ifelse(굳이 &&으로 안묶어도 계속 ,엮어도 상관없네 ifelse 백터를 사용할 때 사용함 메서드 처럼 나오나봐)
 #두개의 답을 매칭할 수 있음 
+#====================================
+#ifelse : ifelse() 함수는 조건에 따라 두 가지 값을 반환하는 함수
+#ifelse() 함수는 벡터화되어 있기 때문에 if 및 else 문보다 더 빠르게 실행됩니다. 
+#또한 ifelse() 함수는 한 줄의 코드로 간단하게 작성할 수 있으므로 코드를 더 간결
+#====================================
+#if(괄호는 조건)
+
 obj=1L
 class(obj)
 #if else 
@@ -28,11 +35,12 @@ if(obj=="integer"){
   print("숫자가 아님")
 }
 
+
 # 스코어를 이용한 조건문
 score=seq(40,100,10);
 score
 df=data.frame(score)
-df$grade=ifelse(test=df$score >=70, yes="합격", no="불합격")
+df$grade=ifelse(test=df$score >=70, yes="합격", no="불합격") #내가 잘 모르는 개념!! 중요 
 df
 
 #*********반복문***********
@@ -50,7 +58,7 @@ while(i>0){
 
 for(i in menu){
   if(i %in% c("짜장면", "짬뽕")){ #==이 안되네, 백터형식이라 매칭이 안되나봐  꼭 %in%으로 사용하자!!  
-    next
+    next #contiue와 같은 역할 
     cat(i ,"요리부터 주문합시다\n", seq="!")
   }else{
     cat(i,"다음메뉴는 무엇인가요?\n", sep = "?")
@@ -68,10 +76,13 @@ for(i in menu){
 
 c(lettes)
 assess=data.frame(id=c(seq(1,3,1)),
-                  company=c(letters(1:3)),
-                  score=c(4.23, 4.89, 3.23)*100
+                  company=c("a","b","c"),
+                  score=c(4.23, 4.89, 3.23)*10
                   )
 
+library(plyr)
+assess1=arrange(assess,id, company,desc(score))
+assess1
 
 # 2. 
 # 평가 점수 90점 이상은 a, 80-89점은 b, 70 -79점은 c60-69점은 d, 60점 미만은 F를 할당하는 조건문을 이용하여 나만의 함수를 만드시오
@@ -87,7 +98,7 @@ grade=function (score){
     }else if(score>=60){
       cat(score, "점은 D등급")
     }else{
-      cat(score, "점은 F등급")
+      cat(score, "점은 F등급") #all
     }
 }
 grade(90)
