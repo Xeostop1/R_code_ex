@@ -55,6 +55,7 @@ b_t=ord_prd %>%
     filter(ord_cd %in%  c("B-25677","B-25703", "B-25601"))
 b_t
 l_df=left_join(a_t, b_t, "ord_cd")
+#left조인은 왼쪽이 없다면 오른쪽 값은 NA을 들어간다 
 l_df
 r_df=right_join(a_t, b_t, "ord_cd")
 r_df
@@ -122,3 +123,5 @@ new_a
 #제조사를 기준으로 에어백별 가격의 평균데이터
 airT=dcast(Cars93, Manufacturer~AirBags, mean, value.var = "Price", fill=0)
 airT
+testQ=qnorm(c(0.975))*10
+testQ
